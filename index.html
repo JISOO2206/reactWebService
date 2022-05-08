@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root">
+
+        </div>
+    </body>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script>
+        const root = document.getElementById("root");
+        const h3 = React.createElement(
+            "h3", 
+            {
+            id: "title",
+            onMouseEnter: () => console.log("mouse enter")
+            },
+            //위의 형식을 props object라고 함.
+            //이 안에선 event listener을 등록할 수 있음.
+        "Hello");
+        const btn = React.createElement("button", {
+            onClick: () => console.log('im cliked'),
+            style: {
+                backgroundColor:"tomato"
+            }
+        }, "Click me");
+        const container = React.createElement("div", null, [h3, btn]);
+        //container은 property를 생성하지 않지만 h3와 btn을 render하는 역할을 하고 있다
+        ReactDOM.render(container, root);
+        //ReactDOM은 React element를 가져다 HTML로 바꾸는 역할을 한다.
+    </script>
+</html>
